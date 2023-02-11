@@ -1,0 +1,10 @@
+# 도로명 주소를 가지고 위도 경로로 변경하는 라이브러리
+!pip install geopy
+from geopy.geocoders import Nominatim
+def geocoding(address):
+    geolocoder = Nominatim(user_agent = 'South Korea', timeout=None)
+    geo = geolocoder.geocode(address)
+    crd = {"lat": str(geo.latitude), "lng": str(geo.longitude)} # 위도 경도
+
+    return crd
+geocoding('서울특별시 강동구 상일로 31')
